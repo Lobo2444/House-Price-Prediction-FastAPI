@@ -12,8 +12,6 @@ Database Integration: The API is connected to a MySQL database using SQLAlchemy 
 
 Interactive Frontend: A user-friendly web interface is created using Streamlit. This frontend allows users to input house features via sliders and dropdowns, sends a request to the FastAPI backend, and displays the returned prediction.
 
-Containerization: The entire backend application is containerized using Docker, ensuring a consistent and reproducible environment for deployment.
-
 Tech Stack
 Backend: Python, FastAPI, Uvicorn
 
@@ -23,23 +21,9 @@ Database: MySQL, SQLAlchemy, python-dotenv
 
 Frontend: Streamlit, Requests
 
-Containerization: Docker
-
 Version Control: Git, GitHub
 
-Project Structure
-house_price_api/
-├── .env                # Stores database credentials (must be created manually)
-├── .gitignore          # Specifies files for Git to ignore
-├── app/                # Contains all backend FastAPI code
-│   ├── __init__.py
-│   ├── main.py         # Main application file with API endpoints
-│   └── mysql_database.py # Database configuration and table definitions
-├── models/             # Stores the serialized ML model and columns
-├── training/           # Contains the model training script and dataset
-├── Dockerfile          # Instructions for building the Docker image
-├── requirements.txt    # Python dependencies
-└── streamlit_app.py    # The frontend Streamlit application
+
 
 Setup and Installation
 Follow these steps to run the project locally.
@@ -88,13 +72,3 @@ streamlit run streamlit_app.py
 
 Your browser will open a new tab with the user interface.
 
-How to Run with Docker
-Build the Docker Image:
-
-docker build -t house-price-api .
-
-Run the Docker Container:
-
-docker run -d -p 8080:80 house-price-api
-
-The API will now be running on http://localhost:8080. Remember to update the URL in streamlit_app.py to point to port 8080 when using the Dockerized backend.
